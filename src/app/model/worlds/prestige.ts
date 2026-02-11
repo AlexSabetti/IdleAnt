@@ -110,8 +110,8 @@ export class Prestige implements WorldInterface {
 
     this.game.baseWorld.littleAnt.prestigeBonusProduction.push(this.pAntPower)
     // "Balancing" change, makes it so the whole littleAnt chain is effected by pAntPower
-    this.game.baseWorld.antQueen.prestigeBonusProduction.push(this.pAntPower)
-    this.game.baseWorld.antNest.prestigeBonusProduction.push(this.pAntPower)
+    this.game.baseWorld.queenAnt.prestigeBonusProduction.push(this.pAntPower)
+    this.game.baseWorld.nestAnt.prestigeBonusProduction.push(this.pAntPower)
     
     this.game.baseWorld.geologist.prestigeBonusProduction.push(this.pAntGeo)
     this.game.baseWorld.hunter.prestigeBonusProduction.push(this.pAntHunter1)
