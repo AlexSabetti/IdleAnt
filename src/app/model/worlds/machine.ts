@@ -22,7 +22,7 @@ export class Machine implements WorldInterface {
   loggingMachine: Unit
   honeyMaker: Unit
   burningGlass: Unit
-  iceCollector: Unit
+  crystalizer: Unit
   iceCompacter: Unit
 
   listMachinery = new Array<Unit>()
@@ -57,8 +57,8 @@ export class Machine implements WorldInterface {
       "Automate the making of honey. Only bees know how it works.")
     this.iceCompacter = new Unit(this.game, "iceC", "Ice Compacter",
       "Ice Compacter is a machine that compacts ice into crystal.")
-    this.iceCollector = new Unit(this.game, "iceK", "Water Tank",
-      "A tank of water.")
+    this.crystalizer = new Unit(this.game, "iceK", "Crystalizer",
+      "A massive tank that collects ambient water vapor and creates crystal.")
     this.burningGlass = new Unit(this.game, "burningGlass", "Burning Lens",
       "A large convex lens used to concentrate sun's rays. This machine melts ice faster than anything else.")
 
@@ -74,7 +74,7 @@ export class Machine implements WorldInterface {
     this.listMachinery.push(this.mine)
     this.listMachinery.push(this.honeyMaker)
     this.listMachinery.push(this.iceCompacter)
-    this.listMachinery.push(this.iceCollector)
+    this.listMachinery.push(this.crystalizer)
     this.listMachinery.push(this.burningGlass)
 
     this.game.lists.push(new TypeList("Machinery", this.listMachinery))
@@ -217,16 +217,16 @@ export class Machine implements WorldInterface {
     this.game.baseWorld.ice.addProductor(new Production(this.iceCompacter, this.machineryCost))
 
     //    Ice Collector
-    this.iceCollector.avabileBaseWorld = false
+    this.crystalizer.avabileBaseWorld = false
     // this.iceCollector.types = [Type.Machinery]
-    this.iceCollector.actions.push(new BuyAction(this.game,
-      this.iceCollector,
+    this.crystalizer.actions.push(new BuyAction(this.game,
+      this.crystalizer,
       [
         new Cost(this.game.baseWorld.wood, this.price1, this.game.buyExp),
         new Cost(this.game.baseWorld.soil, this.price2, this.game.buyExp)
       ]
     ))
-    this.game.baseWorld.crystal.addProductor(new Production(this.iceCollector, machineryProd2))
+    this.game.baseWorld.crystal.addProductor(new Production(this.crystalizer, machineryProd2))
 
     //    Ice Burning Glass
     this.burningGlass.avabileBaseWorld = false
