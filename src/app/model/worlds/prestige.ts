@@ -386,7 +386,7 @@ export class Prestige implements WorldInterface {
         [this.game.forest.listForest, "Beetle"]
       ]
     this.otherList = otherLists.map(ol => {
-      const u = new Unit(this.game, "otherL" + ol[1], ol[1] + " efficienty.",
+      const u = new Unit(this.game, "otherL" + ol[1], ol[1] + " efficiency.",
         ol[1] + " units yield 100% more.")
       const ul = <Unit[]>ol[0]
       ul.forEach(unit => {
